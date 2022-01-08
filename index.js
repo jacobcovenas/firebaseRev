@@ -13,13 +13,17 @@ let id = '';
 
 /**
  * Save a New Task in Firestore
- * @param {string} title the title of the Task
- * @param {string} description the description of the Task
+ * @param {string} title        the title of the Task
+ * @param {string} description  the description of the Task
+ * @param {string} name         the name of the Task
+ * @param {string} result       the result of the Task
  */
-const saveTask = (title, description) =>
+const saveTask = (title, description, name,result) =>
   db.collection(taskFormOwner).doc().set({
     title,
     description,
+    name,
+    result,
   });
 
 const getTasks = () => db.collection(taskFormOwner).get();
@@ -41,7 +45,9 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 
       tasksContainer.innerHTML += `<div class="card card-body mt-2 border-primary">
     <h3 class="h5">${task.title}</h3>
-    <p>${task.description}</p>
+    <p>${task.name}</p>
+    <p>${task.result}</p>
+    <p>${task.description}</p>    
     <div>
       <button class="btn btn-primary btn-delete" data-id="${doc.id}">
         🗑 Eliminar
@@ -73,6 +79,9 @@ window.addEventListener("DOMContentLoaded", async (e) => {
           const task = doc.data();
           taskForm["task-title"].value = task.title;
           taskForm["task-description"].value = task.description;
+          taskForm["task-name"].value = task.name;
+          taskForm["flexRadioDefault1"].value = task.result;
+          result
 
           editStatus = true;
           id = doc.id;
@@ -91,19 +100,24 @@ taskForm.addEventListener("submit", async (e) => {
 
   const title = taskForm["task-title"];
   const description = taskForm["task-description"];
+  const name = taskForm["task-name"];
+  const result = taskForm["flexRadioDefault1"];
 
   try {
     if (!editStatus) {
-      await saveTask(title.value, description.value);
+      await saveTask(title.value, description.value, name.value, result.value);
     } else {
       await updateTask(id, {
         title: title.value,
         description: description.value,
+        name: name.value,
+        result: result.value,
+
       })
 
       editStatus = false;
       id = '';
-      taskForm['btn-task-form'].innerText = 'Save';
+      taskForm['btn-task-form'].innerText = 'Grabar';
     }
 
     taskForm.reset();
