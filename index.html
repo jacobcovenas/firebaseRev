@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -13,20 +13,34 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 
 </head>
-<body>
-    <input type="number" id="task-Nombre" class="form-control" class="Celular" placeholder="Celular"
+<body class="bg-light">
+
+  <!-- ADD TASK -->
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <input type="number" id="task-number" class="form-control" class="Celular" placeholder="Celular"
                   autofocus>
 
                   <button class="btn btn-primary" id="btn-task-form">
                     Entrar
                   </button>
+                </div>
+              </div>
+            </div>            
+          </div>
+        </div>
 
     <script>
         document.getElementById('btn-task-form').addEventListener('click', () =>{
-            let inpNumero = document.getElementById('task-Nombre').value;
-            window.location = `index2.html?numero=${inpNumero}`;
+            let number = document.getElementById('task-number').value;
+            window.location = `index2.html?number=${number}`;
         })
     </script>
+
+    
 </body>
 
 </html>

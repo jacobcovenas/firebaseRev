@@ -5,7 +5,7 @@ const db = firebase.firestore();
 const taskForm = document.getElementById("task-form");
 const tasksContainer = document.getElementById("tasks-container");
 const path = window.location.href;
-const taskFormOwner = path.split('numero=')[1];
+const taskFormOwner = path.split('number=')[1];
 
 let editStatus = false;
 let id = '';
