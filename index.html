@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis revisitas</title>
+
+  <!-- BOOTSWATCH -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/pulse/bootstrap.min.css">
+
+  <!-- ANIMATE CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
+</head>
+<body>
+    <input type="number" id="task-Nombre" class="form-control" class="Celular" placeholder="Celular"
+                  autofocus>
+
+                  <button class="btn btn-primary" id="btn-task-form">
+                    Entrar
+                  </button>
+
+    <script>
+        document.getElementById('btn-task-form').addEventListener('click', () =>{
+            let inpNumero = document.getElementById('task-Nombre').value;
+            window.location = `index2.html?numero=${inpNumero}`;
+        })
+    </script>
+</body>
+
+</html>
