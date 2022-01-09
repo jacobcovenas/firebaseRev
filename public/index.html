@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis revisitas</title>
+
+  <!-- BOOTSWATCH -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/pulse/bootstrap.min.css">
+
+  <!-- ANIMATE CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
+</head>
+<body class="bg-light">
+
+  <!-- ADD TASK -->
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <input type="number"  min="900000000" max="999999999" id="task-number" class="form-control" class="Celular" placeholder="Celular"
+                  autofocus>
+
+                  <button class="btn btn-primary" id="btn-task-form">
+                    Ver o ingresar mis revisitas
+                  </button>
+                </div>
+              </div>
+            </div>            
+          </div>
+        </div>
+
+    <script>
+        document.getElementById('btn-task-form').addEventListener('click', () =>{
+            let number = document.getElementById('task-number').value;
+            window.location = `index2.html?number=${number}`;
+
+        })
+         
+        
+
+
+    </script>
+
+    
+</body>
+
+</html>

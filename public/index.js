@@ -49,13 +49,9 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 
       tasksContainer.innerHTML += `<div class="card card-body mt-2 border-primary">
       
-      <h3 class="h5">${task.number}</h3>
-      <p>${task.name}</p>
-      <p>${task.description}</p>    
-      <p>${task.result}</p>
-      <p>${task.date}</p>
-      <p>${task.material}</p>
-      <p>${task.schedule}</p>
+      <h3 class="h5">${task.number} ${task.name}</h3>            
+      <p>${task.date} ${task.schedule} ${task.result}</p>      
+      <p>${task.material} ${task.description}</p>    
     
     <div>
       <button class="btn btn-primary btn-delete" data-id="${doc.id}">
