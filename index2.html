@@ -27,45 +27,71 @@
 
             <form id="task-form">
               <div class="form-group">
-                <input type="number" id="task-title" class="form-control" placeholder="Celular"
-                  autofocus>
+                <label class="form-check-label">
+                  ¿En que horario visitó?
+                </label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" value="Mañana" name="task-schedule" id="task-schedulea" required>
+                  <label class="form-check-label" for="task-schedulea">
+                    Mañana (antes de las 12pm)
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" value="Tarde" name="task-schedule" id="task-scheduleb" required>
+                  <label class="form-check-label" for="task-scheduleb">
+                    Tarde (Entre 12pm y 6pm)
+                  </label>
+                </div>
+                
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" value="Noche" name="task-schedule" id="task-schedulec" required>
+                  <label class="form-check-label" for="task-schedulec">
+                    Noche (Después delas 6pm)
+                  </label>
+                </div> 
+              </div>
+
+              <div class="form-group">
+                <input type="number" id="task-number" class="form-control" placeholder="Ingrese teléfono"
+                 required autofocus>
               </div>
 
               <div class="form-group">
                 <label class="form-check-label">
-                  Resultado
+                  ¿Como le fue?
                 </label>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                  <label class="form-check-label" for="flexRadioDefault1">
+                  <input class="form-check-input" type="radio" value="No contestó" name="task-result" id="task-resulta" required>
+                  <label class="form-check-label" for="task-resulta">
                     No contestó
                   </label>
                 </div>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                  <label class="form-check-label" for="flexRadioDefault2">
+                  <input class="form-check-input" type="radio" value="Llamarlo en otro momento" name="task-result" id="task-resultb" required>
+                  <label class="form-check-label" for="task-resultb">
                     Llamarlo en otro momento
                   </label>
                 </div>
                 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                  <label class="form-check-label" for="flexRadioDefault3">
+                  <input class="form-check-input" type="radio" value="Contactarlo por WhatsApp" name="task-result" id="task-resultc" required>
+                  <label class="form-check-label" for="task-resultc">
                     Contactarlo por WhatsApp 
                   </label>
                 </div> 
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
-                  <label class="form-check-label" for="flexRadioDefault4">
+                  <input class="form-check-input" type="radio" value="Responder pregunta" name="task-result" id="task-resultd" required>
+                  <label class="form-check-label" for="task-resultd">
                     Responder pregunta
                   </label>
                 </div>
                 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
-                  <label class="form-check-label" for="flexRadioDefault5">
+                  <input class="form-check-input" type="radio" value="NO LLAMAR" name="task-result" id="task-resulte" required>
+                  <label class="form-check-label" for="task-resulte">
                     NO LLAMAR
                   </label>
                 </div>
@@ -73,37 +99,43 @@
               </div>
 
               <div class="form-group">
-                <input type="text" id="task-name" class="form-control" placeholder="Nombre"
+                <input type="text" id="task-name" class="form-control" placeholder="Nombre de la persona"
                   autofocus>
               </div>
 
               <div class="form-group">
+                <label class="form-check-label">
+                  ¿Qué le dejó?
+                </label>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefaulta" id="flexRadioDefault1a">
-                  <label class="form-check-label" for="flexRadioDefault1a">
+                  <input class="form-check-input" type="radio" value="Publicación o Texto" name="task-material" id="task-materiala">
+                  <label class="form-check-label" for="task-materiala">
                     Publicación o Texto
                   </label>
                 </div>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefaulta" id="flexRadioDefault2a">
-                  <label class="form-check-label" for="flexRadioDefault2a">
+                  <input class="form-check-input" type="radio" value="Link JW.org" name="task-material" id="task-materialb">
+                  <label class="form-check-label" for="task-materialb">
                     Link JW.org
                   </label>
                 </div>
                 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefaulta" id="flexRadioDefault3a">
-                  <label class="form-check-label" for="flexRadioDefault3a">
+                  <input class="form-check-input" type="radio" value="Pregunta pendiente" name="task-material" id="task-materialc">
+                  <label class="form-check-label" for="task-materialc">
                     Pregunta pendiente
                   </label>
                 </div> 
               </div>
 
               <div class="form-group">
-                <textarea id="task-description" rows="3" class="form-control" placeholder="Observacion"></textarea>
+                <input type="datetime-local" id="task-date" class="form-control" placeholder="Fecha y hora de visita" required>
               </div>
 
+              <div class="form-group">
+                <textarea id="task-description" rows="3" class="form-control" placeholder="Observacion"></textarea>
+              </div>
 
               <button class="btn btn-primary" id="btn-task-form">
                 Grabar

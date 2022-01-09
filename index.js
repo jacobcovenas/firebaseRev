@@ -1,5 +1,4 @@
 
-
 const db = firebase.firestore();
 
 const taskForm = document.getElementById("task-form");
@@ -10,20 +9,25 @@ const taskFormOwner = path.split('number=')[1];
 let editStatus = false;
 let id = '';
 
-
 /**
  * Save a New Task in Firestore
- * @param {string} title        the title of the Task
+ * @param {string} number        the number of the Task
  * @param {string} description  the description of the Task
  * @param {string} name         the name of the Task
  * @param {string} result       the result of the Task
+ * @param {string} date         the date of the Task
+ * @param {string} schedule     the schedule of the Task
+ * @param {string} material     the material of the Task
  */
-const saveTask = (title, description, name,result) =>
+const saveTask = (number, description, name, result, date,schedule,material) =>
   db.collection(taskFormOwner).doc().set({
-    title,
+    number,
     description,
     name,
     result,
+    date,
+    schedule,
+    material,
   });
 
 const getTasks = () => db.collection(taskFormOwner).get();
@@ -44,10 +48,15 @@ window.addEventListener("DOMContentLoaded", async (e) => {
       const task = doc.data();
 
       tasksContainer.innerHTML += `<div class="card card-body mt-2 border-primary">
-    <h3 class="h5">${task.title}</h3>
-    <p>${task.name}</p>
-    <p>${task.result}</p>
-    <p>${task.description}</p>    
+      
+      <h3 class="h5">${task.number}</h3>
+      <p>${task.name}</p>
+      <p>${task.description}</p>    
+      <p>${task.result}</p>
+      <p>${task.date}</p>
+      <p>${task.material}</p>
+      <p>${task.schedule}</p>
+    
     <div>
       <button class="btn btn-primary btn-delete" data-id="${doc.id}">
         🗑 Eliminar
@@ -77,18 +86,21 @@ window.addEventListener("DOMContentLoaded", async (e) => {
         try {
           const doc = await getTask(e.target.dataset.id);
           const task = doc.data();
-          taskForm["task-title"].value = task.title;
+          taskForm["task-number"].value = task.number;
           taskForm["task-description"].value = task.description;
           taskForm["task-name"].value = task.name;
-          taskForm["flexRadioDefault1"].value = task.result;
-          result
+          taskForm["task-result"].value = task.result;
+          taskForm["task-date"].value = task.date;
+          taskForm["task-schedule"].value = task.schedule;          
+          taskForm["task-material"].value = task.material;
+          console.log (taskForm["task-schedule"].value);
 
           editStatus = true;
           id = doc.id;
           taskForm["btn-task-form"].innerText = "Actualizar";
 
-        } catch (error) {
-          console.log(error);
+          } catch (error) {
+            console.log(error);
         }
       });
     });
@@ -98,21 +110,26 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 taskForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const title = taskForm["task-title"];
+  const number =       taskForm["task-number"];
   const description = taskForm["task-description"];
-  const name = taskForm["task-name"];
-  const result = taskForm["flexRadioDefault1"];
-
+  const name =        taskForm["task-name"];
+  const result =      taskForm["task-result"];
+  const date =        taskForm["task-date"];
+  const schedule =    taskForm["task-schedule"];
+  const material =    taskForm["task-material"];  
+  
   try {
     if (!editStatus) {
-      await saveTask(title.value, description.value, name.value, result.value);
+      await saveTask(number.value, description.value, name.value, result.value, date.value, schedule.value, material.value );
     } else {
       await updateTask(id, {
-        title: title.value,
+        number: number.value,
         description: description.value,
         name: name.value,
         result: result.value,
-
+        date: date.value,
+        schedule: schedule.value,
+        material: material.value,
       })
 
       editStatus = false;
@@ -121,8 +138,8 @@ taskForm.addEventListener("submit", async (e) => {
     }
 
     taskForm.reset();
-    title.focus();
-  } catch (error) {
-    console.log(error);
-  }
+    number.focus();
+    } catch (error) {
+      console.log(error);
+      }
 });
