@@ -27,14 +27,50 @@
 
             <form id="task-form">
 
+              <!-- date -->
               <label class="form-check-label">
                 Fecha de visita
-                </label>
+              </label>  
+              <div class="form-group">
+               <input type="date" id="task-date" class="form-control" required>
+              </div>
   
-                <div class="form-group">
-                  <input type="date" id="task-date" class="form-control" required>
-                </div>
-  
+              <!-- territory-number -->
+              <div class="form-group">
+                <input type="number" id="task-territory-number" class="form-control" placeholder="Ingrese número de territorio">
+              </div>
+              
+              <!-- address-zona -->
+              <div class="form-group">
+                <input type="text" id="task-address-zona" class="form-control" placeholder="Ingrese zona, urbanización , barrio o equivalente">
+              </div>
+
+              <!-- address-stret -->
+              <div class="form-group">
+                <input type="text" id="task-address-stret" class="form-control" placeholder="Ingrese avenida, calle , jirón o equivalente">
+              </div>
+              
+              <!-- address-block -->
+              <div class="form-group">
+                <input type="text" id="task-address-block" class="form-control" placeholder="Ingrese Manzana, Bloque, edificio o equivalente">
+              </div>
+
+              <!-- address-number -->
+              <div class="form-group">
+                <input type="text" id="task-address-number" class="form-control" placeholder="Ingrese número">
+              </div>
+
+              <!-- address-lot -->
+              <div class="form-group">
+                <input type="text" id="task-address-lot" class="form-control" placeholder="Ingrese lote">
+              </div>
+
+              <!-- address-interior -->
+              <div class="form-group">
+                <input type="text" id="task-address-interior" class="form-control" placeholder="Ingrese interior, dpto, sublote o equivalente">
+              </div>
+
+              <!-- shedule -->
               <div class="form-group">
                 <label class="form-check-label">
                   ¿En que horario visitó?
@@ -45,14 +81,12 @@
                     Mañana (antes de las 12pm)
                   </label>
                 </div>
-
                 <div class="form-check">
                   <input class="form-check-input" type="radio" value="Tarde" name="task-schedule" id="task-scheduleb" required>
                   <label class="form-check-label" for="task-scheduleb">
                     Tarde (Entre 12pm y 6pm)
                   </label>
-                </div>
-                
+                </div>                
                 <div class="form-check">
                   <input class="form-check-input" type="radio" value="Noche" name="task-schedule" id="task-schedulec" required>
                   <label class="form-check-label" for="task-schedulec">
@@ -61,11 +95,22 @@
                 </div> 
               </div>
 
+              <!-- number -->
               <div class="form-group">
-                <input type="number" id="task-number" class="form-control" placeholder="Ingrese teléfono"
-                 required autofocus>
+                <input type="number" id="task-number" class="form-control" placeholder="Ingrese Celular" >
               </div>
 
+              <!-- number-local1 -->
+              <div class="form-group">
+                <input type="number" id="task-number-local1" class="form-control" placeholder="Ingrese teléfono fijo1">
+              </div>
+
+              <!-- number-local2 -->
+              <div class="form-group">
+                <input type="number" id="task-number-local2" class="form-control" placeholder="Ingrese teléfono fijo2">
+              </div>
+
+              <!-- result -->
               <div class="form-group">
                 <label class="form-check-label">
                   ¿Como le fue?
@@ -76,42 +121,38 @@
                     No contestó
                   </label>
                 </div>
-
                 <div class="form-check">
                   <input class="form-check-input" type="radio" value="Llamarlo en otro momento" name="task-result" id="task-resultb" required>
                   <label class="form-check-label" for="task-resultb">
                     Llamarlo en otro momento
                   </label>
-                </div>
-                
+                </div>                
                 <div class="form-check">
                   <input class="form-check-input" type="radio" value="Contactarlo por WhatsApp" name="task-result" id="task-resultc" required>
                   <label class="form-check-label" for="task-resultc">
                     Contactarlo por WhatsApp 
                   </label>
-                </div> 
-
+                </div>
                 <div class="form-check">
                   <input class="form-check-input" type="radio" value="Responder pregunta" name="task-result" id="task-resultd" required>
                   <label class="form-check-label" for="task-resultd">
                     Responder pregunta
                   </label>
-                </div>
-                
+                </div>                
                 <div class="form-check">
                   <input class="form-check-input" type="radio" value="NO LLAMAR" name="task-result" id="task-resulte" required>
                   <label class="form-check-label" for="task-resulte">
                     NO LLAMAR
                   </label>
                 </div>
-
               </div>
 
+              <!-- name -->
               <div class="form-group">
-                <input type="text" id="task-name" class="form-control" placeholder="Nombre de la persona"
-                  autofocus>
+                <input type="text" id="task-name" class="form-control" placeholder="Nombre del amo de casa">
               </div>
 
+              <!-- material -->
               <div class="form-group">
                 <label class="form-check-label">
                   ¿Qué le dejó?
@@ -122,14 +163,12 @@
                     Publicación o Texto
                   </label>
                 </div>
-
                 <div class="form-check">
                   <input class="form-check-input" type="radio" value="Link JW.org" name="task-material" id="task-materialb">
                   <label class="form-check-label" for="task-materialb">
                     Link JW.org
                   </label>
-                </div>
-                
+                </div>                
                 <div class="form-check">
                   <input class="form-check-input" type="radio" value="Pregunta pendiente" name="task-material" id="task-materialc">
                   <label class="form-check-label" for="task-materialc">
@@ -138,8 +177,27 @@
                 </div> 
               </div>
               
+              <!-- letter -->
+              <div class="form-group">
+                <label class="form-check-label">
+                  Se ha enviado carta
+                </label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" value="Si" name="task-letter" id="task-lettera">
+                  <label class="form-check-label" for="task-lettera">
+                    Si
+                  </label>
+                </div>
+              </div>
+              
+              <!-- descripcion -->
               <div class="form-group">
                 <textarea id="task-description" rows="3" class="form-control" placeholder="Observacion"></textarea>
+              </div>
+
+              <!-- name-publisher -->
+              <div class="form-group">
+                <input type="text" id="task-name-publisher" class="form-control" placeholder="Nombre del informante">
               </div>
 
               <button class="btn btn-primary" id="btn-task-form">
@@ -180,7 +238,6 @@
   </script>
 
   <!-- CUSTOM CODE -->
-  <script src="index.js"></script>
+  <script src="index4.js"></script>
 </body>
-
 </html>

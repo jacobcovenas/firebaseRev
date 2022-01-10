@@ -21,13 +21,7 @@ let id = '';
  */
 const saveTask = (number, description, name, result, date,schedule,material) =>
   db.collection(taskFormOwner).doc().set({
-    number,
-    description,
-    name,
-    result,
-    date,
-    schedule,
-    material,
+    number, description, name, result, date, schedule, material,
   });
 
 const getTasks = () => db.collection(taskFormOwner).get();
@@ -49,19 +43,19 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 
       tasksContainer.innerHTML += `<div class="card card-body mt-2 border-primary">
       
-      <h3 class="h5">${task.number} ${task.name}</h3>            
-      <p>${task.date} ${task.schedule} ${task.result}</p>      
-      <p>${task.material} ${task.description}</p>    
-    
-    <div>
-      <button class="btn btn-primary btn-delete" data-id="${doc.id}">
-        🗑 Eliminar
-      </button>
-      <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
-        🖉 Modificar
-      </button>
-    </div>
-  </div>`;
+        <h2 class="h5">${task.number} ${task.name}</h2>            
+        <p>${task.date} ${task.schedule} ${task.result}</p>      
+        <p>${task.material} ${task.description}</p>    
+      
+        <div>
+          <button class="btn btn-primary btn-delete" data-id="${doc.id}">
+            🗑 Eliminar
+          </button>
+          <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
+            🖉 Modificar
+          </button>
+        </div>
+      </div>`;
     });
 
     const btnsDelete = tasksContainer.querySelectorAll(".btn-delete");
